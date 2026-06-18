@@ -6,7 +6,7 @@
 
 Transforme o Claude em um especialista sênior de UI/UX e landing pages de alta conversão.
 
-[![Skills](https://img.shields.io/badge/skills-2-blueviolet)](#-skills-disponíveis)
+[![Skills](https://img.shields.io/badge/skills-3-blueviolet)](#-skills-disponíveis)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-ready-7C3AED)](https://claude.com/claude-code)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](#-contribuindo)
 
@@ -41,6 +41,18 @@ entregando interfaces intencionais, acessíveis e polidas.
   (cor, tipografia, espaçamento) · acessibilidade WCAG · microinterações ·
   checklist de revisão.
 
+### 🧠 [`design-system-generator`](.claude/skills/design-system-generator)
+
+Motor de raciocínio que recebe o produto/indústria e **gera um sistema de design
+completo** (padrão + estilo + cores + tipografia + efeitos + anti-padrões +
+checklist) em segundos, no formato de um card estruturado.
+
+- **Usa quando:** quiser as **decisões de design antes de codar** — "monte um
+  design system para meu spa", "qual estilo e cores para um fintech".
+- **Cobre:** 161 categorias de produto · 67 estilos de UI · paletas por setor ·
+  57 pares tipográficos · 24 padrões de landing · 25 gráficos de dashboard ·
+  filtragem de anti-padrões por indústria.
+
 ### 🚀 [`landing-page-engineer`](.claude/skills/landing-page-engineer)
 
 Faz o Claude atuar como **engenheiro de growth + copywriter + dev de
@@ -55,8 +67,12 @@ performance**, construindo landing pages que **convertem**.
 > As duas se complementam: a `landing-page-engineer` usa os princípios visuais
 > da `ui-ux-pro-max` para a camada estética, somando a camada de conversão.
 
+> Fluxo recomendado: **`design-system-generator` (decidir) → `ui-ux-pro-max`
+> (construir) → `landing-page-engineer` (converter)**.
+
 | Skill | Foco | Stack |
 |-------|------|-------|
+| `design-system-generator` | Decisões de design por indústria | Agnóstico (gera tokens p/ qualquer stack) |
 | `ui-ux-pro-max` | Interface, usabilidade, acessibilidade | React · Tailwind · HTML/CSS · mobile |
 | `landing-page-engineer` | Conversão, copy, performance, SEO | Next.js · Astro · React · HTML/Tailwind |
 
@@ -78,8 +94,9 @@ cd skills.giraldidev
 
 # 2. Copie as skills para a pasta global do Claude
 mkdir -p ~/.claude/skills
-cp -r .claude/skills/ui-ux-pro-max        ~/.claude/skills/
-cp -r .claude/skills/landing-page-engineer ~/.claude/skills/
+cp -r .claude/skills/design-system-generator ~/.claude/skills/
+cp -r .claude/skills/ui-ux-pro-max           ~/.claude/skills/
+cp -r .claude/skills/landing-page-engineer   ~/.claude/skills/
 ```
 
 **Windows (PowerShell):**
@@ -88,8 +105,9 @@ git clone https://github.com/giraldidev/skills.giraldidev.git
 cd skills.giraldidev
 
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
-Copy-Item -Recurse ".claude\skills\ui-ux-pro-max"         "$env:USERPROFILE\.claude\skills\"
-Copy-Item -Recurse ".claude\skills\landing-page-engineer" "$env:USERPROFILE\.claude\skills\"
+Copy-Item -Recurse ".claude\skills\design-system-generator" "$env:USERPROFILE\.claude\skills\"
+Copy-Item -Recurse ".claude\skills\ui-ux-pro-max"           "$env:USERPROFILE\.claude\skills\"
+Copy-Item -Recurse ".claude\skills\landing-page-engineer"   "$env:USERPROFILE\.claude\skills\"
 ```
 
 ✅ Pronto — as skills valem para sempre, em qualquer projeto.
@@ -141,6 +159,10 @@ skills.giraldidev/
 ├── README.md                          ← você está aqui
 └── .claude/
     └── skills/
+        ├── design-system-generator/
+        │   ├── SKILL.md
+        │   ├── README.md
+        │   └── references/            # regras por indústria, estilos, paletas...
         ├── ui-ux-pro-max/
         │   ├── SKILL.md               # instruções principais + workflow
         │   ├── README.md              # documentação da skill
