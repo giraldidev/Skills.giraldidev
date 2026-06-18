@@ -84,31 +84,36 @@ Escolha **uma** das opções abaixo.
 
 ### Opção A — Global (recomendada) · disponível em todos os seus projetos
 
-Instale uma vez e use em qualquer pasta da sua máquina.
+Instale uma vez com o script de instalação e use em qualquer pasta da sua máquina.
 
 **Mac / Linux:**
 ```bash
-# 1. Clone este repositório
 git clone https://github.com/giraldidev/skills.giraldidev.git
 cd skills.giraldidev
-
-# 2. Copie as skills para a pasta global do Claude
-mkdir -p ~/.claude/skills
-cp -r .claude/skills/design-system-generator ~/.claude/skills/
-cp -r .claude/skills/ui-ux-pro-max           ~/.claude/skills/
-cp -r .claude/skills/landing-page-engineer   ~/.claude/skills/
+./install.sh                 # instala TODAS as skills
+# ou: ./install.sh ui-ux-pro-max   (instala só uma)
 ```
 
 **Windows (PowerShell):**
 ```powershell
 git clone https://github.com/giraldidev/skills.giraldidev.git
 cd skills.giraldidev
-
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
-Copy-Item -Recurse ".claude\skills\design-system-generator" "$env:USERPROFILE\.claude\skills\"
-Copy-Item -Recurse ".claude\skills\ui-ux-pro-max"           "$env:USERPROFILE\.claude\skills\"
-Copy-Item -Recurse ".claude\skills\landing-page-engineer"   "$env:USERPROFILE\.claude\skills\"
+.\install.ps1                # instala TODAS as skills
+# ou: .\install.ps1 ui-ux-pro-max
 ```
+
+O script copia as skills para `~/.claude/skills/` (pasta global do Claude Code).
+
+<details>
+<summary>Instalação manual (sem script)</summary>
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r .claude/skills/design-system-generator ~/.claude/skills/
+cp -r .claude/skills/ui-ux-pro-max           ~/.claude/skills/
+cp -r .claude/skills/landing-page-engineer   ~/.claude/skills/
+```
+</details>
 
 ✅ Pronto — as skills valem para sempre, em qualquer projeto.
 
